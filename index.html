@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            background: #f5f7fa;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #111;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #007bff;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: #007bff;
+        }
+
+        /* HERO */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+                url('https://images.unsplash.com/photo-1498050108023-c5249f4df085');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: auto;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        /* SECTIONS */
+        .section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            height: 3px;
+            width: 50px;
+            background: #007bff;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* GRID SYSTEM */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .card i {
+            font-size: 2rem;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        /* PILLS FOR SKILLS */
+        .pill-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .pill {
+            background: #e7f1ff;
+            color: #007bff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* CONTACT FORM */
+        .contact-container {
+            max-width: 700px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .social-links {
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: #fff;
+            margin: 0 15px;
+            font-size: 1.4rem;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #007bff;
+        }
+
+        @media(max-width:768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="#" class="logo">Kripal.V.V<span></a>
+            <ul class="nav-links">
+                <li><a href="#about">Profile</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Work</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div>
+            <h1>Hi, I am Kripal</h1>
+            <p>Second Year B.Tech Data Science Student passionate about web development, problem solving and building clean responsive designs.</p>
+            <a href="#projects" class="btn">View My Work</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2 class="section-title">About & Objective</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-user"></i>
+                <h3>About Me</h3>
+                <p><p>
+I am a dedicated B.Tech undergraduate specializing in Computer Science and Data Science with a keen interest in web technologies and software development. 
+I focus on building clean, responsive, and performance-oriented web applications.
+With a strong foundation in programming fundamentals and problem-solving, 
+I continuously strive to enhance my technical expertise and contribute to impactful projects.
+</p></p>
+            </div>
+            <div class="card">
+                <i class="fas fa-bullseye"></i>
+                <h3>Career Objective</h3>
+                <p>To secure a challenging position in a reputable organization where I can utilize my technical skills in web development to contribute to project success and gain industry experience.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section" style="background: #fff;">
+        <h2 class="section-title">Education</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>B.Tech in Computer Science and Data Science</h3>
+                <p>APJ Abdul Kalam Technological University | 2024 - 2028</p>
+                <p>ST. Thomas College of Engineering and Technology </p>
+            </div>
+            <div class="card">
+                <i class="fas fa-school"></i>
+                <h3>School</h3>
+                <p>Sreepuram English Medium and Junior College (CISCE) | Completed 2024</p>
+                <p>ST. Francis Higher Secondary School (CISCE) | Completed 2022</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <h2 class="section-title">Skills Overview</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Technical Stack</h3>
+                <div class="pill-container">
+                    <span class="pill">HTML</span>
+                    <span class="pill">CSS</span>
+                    <span class="pill">Java</span>
+                    <span class="pill">SQL</span>
+                    <span class="pill">Git</span>
+                    <span class="pill">Python</span>
+                    <span class="pill">C program</span>
+                    <span class="pill">Poster Designing</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Soft Skills</h3>
+                <div class="pill-container">
+                    <span class="pill">Problem Solving</span>
+                    <span class="pill">Team Collaboration</span>
+                    <span class="pill">Effective Communication</span>
+                    <span class="pill">Adaptability</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Languages Known</h3>
+                <div class="pill-container">
+                    <span class="pill">English</span>
+                    <span class="pill">Malayalam</span>
+                    <span class="pill">Hindi</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section" style="background: #fff;">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Portfolio Website</h3>
+                <p>Responsive personal portfolio using HTML & CSS showcasing my skills and projects.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-server"></i>
+                <h3>IEEE Student Branch Website</h3>
+                <p>Designed and developed the official website for the IEEE Student Branch built using HTML, CSS, and responsive design principles 
+to ensure accessibility across devices..</p>
+            </div>
+          <div class="card">
+                <i class="fas fa-server"></i>
+                <h3>ATM Interface</h3>
+                <p>Designed and implemented an ATM simulation system applying core OOPS concepts 
+including classes, objects, abstraction, and encapsulation. The system handled 
+user authentication, balance management, deposits, and withdrawals updates.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-book"></i>
+                <h3>Simulation of Pipeline Hazards in RISC-V Processor</h3>
+                <p>Simulated structural, data, and control hazards in a pipelined RISC-V architecture 
+to analyze performance impacts and hazard resolution techniques such as forwarding, 
+stalling, and branch prediction. Implemented using assembly-level instructions 
+and architectural simulation tools</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Achievements & Credentials</h2>
+        <div class="grid">
+            </div>
+            <div class="card">
+                <i class="fas fa-certificate"></i>
+                <h3>Certifications</h3>
+                <p>• NPTEL, Python for Data Science Certificate.</p>
+              <p>• Spoken Tutorial IIT Bombay, Python3.4.3 Certificate.</p>
+              <p>• ISTE, Poster Designing Competetion Certificate.</p>
+              <p>• MIT Academy of Engineering, Hands-on Al: Learning, Trends, and Applications with NVIDIA Jetson Nano for Real-Time Edge Al Implementation.</p>
+              <p>• Kerala Development and Innovation Strategic Council, Stakeholder Certificate</p>
+              <p>• Intel, AI Aware and  AI Appreciate Certificate.
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: #fff;">
+        <h2 class="section-title">Experience & Leadership</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-briefcase"></i>
+                <h3>Internships / Training</h3>
+                <p>Completed a 3-week Python for Data Science Internship at Neovent Innovation, focusing on Python tools and how it can be implemented in real world.</p>
+            </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <h3>Workshops</h3>
+                <p>• Attended workshops on "Hands-on Al: Learning, Trends, and Applications with NVIDIA Jetson Nano for Real-Time Edge Al Implementation".</p>
+              <p>• Attended workshops on "Web Development."</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Extracurriculars & Impact</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-basketball-ball"></i>
+                <h3>Extracurricular Activities</h3>
+              <p>• Member of the college sports team.</p>
+              <p>• Passionate about digital photography and product photography.</p>
+              <p>• Participated in technical events</P>
+              <p>• Participated in Coding competitions</p>
+              <p>• Technical quiz participation</p>
+              <p>• Cultural fest involvement</p>
+              <p>• ISTE Member<p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section" style="background: #fff;">
+        <h2 class="section-title">Contact Information</h2>
+        <div class="contact-container">
+            <div style="text-align: center; margin-bottom: 30px;">
+               
+                <p><i class="fas fa-map-marker-alt"></i> Kannur, Kerala, India</p>
+            </div>
+            <form onsubmit="return false">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email">
+                </div>
+                <div class="form-group">
+                    <textarea rows="4" placeholder="Your Message"></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>© 2026 Kripal V V. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
